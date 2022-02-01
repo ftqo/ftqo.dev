@@ -1,1 +1,1 @@
-# fittsqo.github.io
+# ftqo.dev
