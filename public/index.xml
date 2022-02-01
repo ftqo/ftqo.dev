@@ -9,6 +9,16 @@
       <link>https://ftqo.dev/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://ftqo.dev/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Mon, 20 Dec 2021 20:16:59 -0800</lastBuildDate><atom:link href="https://ftqo.dev/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My First Post</title>
+      <link>https://ftqo.dev/posts/my-first-post/</link>
+      <pubDate>Mon, 20 Dec 2021 20:16:59 -0800</pubDate>
+      
+      <guid>https://ftqo.dev/posts/my-first-post/</guid>
+      <description>welcome to my new site! i just got hired for a co-op, so i will not be too active on this site. when i return to school in january 2023, i will have a lot more free time to spare on personal projects.</description>
+    </item>
+    
   </channel>
 </rss>
