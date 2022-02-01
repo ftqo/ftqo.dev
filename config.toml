@@ -10,7 +10,7 @@ buildExpired = false
 
 [minify]
 disableXML = true
-minifyOutput = false
+minifyOutput = true
 
 [params]
 env = "production"
