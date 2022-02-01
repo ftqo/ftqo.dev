@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://ftqo.dev/sitemap.xml
