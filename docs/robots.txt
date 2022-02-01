@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://fittsqo.github.io/sitemap.xml
