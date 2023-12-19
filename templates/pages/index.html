@@ -3,6 +3,7 @@
 {{ template "header" }}
 
 <div class="text-blue-500">Hello</div>
-<button type="button" hx-post="/clicked" hx-swap="outerHTML">Click Me</button>
+<button type="button" hx-post="/counter" hx-target="#dynamic-content" hx-swap="innerHTML">Click Me</button>
+<div id="dynamic-content" hx-get="/counter" hx-trigger="load"></div>
 
 {{ template "footer" }}

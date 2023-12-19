@@ -5,10 +5,12 @@ import (
 	"log/slog"
 	"net/http"
 	"os"
+	"strconv"
 	"strings"
 
 	"github.com/ftqo/ftqo.dev/assets"
 	"github.com/ftqo/ftqo.dev/templates"
+	"github.com/go-chi/chi/v5"
 )
 
 var tmpl *template.Template
@@ -21,10 +23,22 @@ func main() {
 		os.Exit(1)
 	}
 
-	http.Handle("/assets/", http.StripPrefix("/assets/", http.FileServer(http.FS(assets.A))))
-	http.HandleFunc("/", serveTemplate)
+	r := chi.NewRouter()
 
-	err = http.ListenAndServe(":8080", nil)
+	r.Mount("/assets/", http.StripPrefix("/assets/", http.FileServer(http.FS(assets.A))))
+
+	r.Get("/", serveTemplate)
+
+	counter := 0
+	r.Post("/counter", func(w http.ResponseWriter, r *http.Request) {
+		counter++
+		w.Write([]byte(strconv.Itoa(counter)))
+	})
+	r.Get("/counter", func(w http.ResponseWriter, r *http.Request) {
+		w.Write([]byte(strconv.Itoa(counter)))
+	})
+
+	err = http.ListenAndServe(":8080", r)
 	if err != nil {
 		slog.Error(err.Error())
 	}
