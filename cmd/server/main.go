@@ -16,7 +16,7 @@ var tmpl *template.Template
 func main() {
 	var err error
 	tmpl, err = template.ParseFS(templates.T, "*/**.html")
-	if tmpl == nil {
+	if err != nil {
 		slog.Error(err.Error())
 		os.Exit(1)
 	}

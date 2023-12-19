@@ -5,3 +5,6 @@ to generate the tailwind output file, install tailwindcss 3.3.7+:
 
 and then just run:
 `go generate`
+
+if you have air, you can automatically update with:
+`air`

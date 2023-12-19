@@ -1,15 +1,8 @@
-<html>
+{{ template "head" }}
 
-<head>
-	<script src="/assets/js/htmx.min.js"></script>
-	<link href="/assets/css/output.css" rel="stylesheet" />
-</head>
+{{ template "header" }}
 
-<body>
-	{{ template "header" }}
-	<div class="text-blue-500">Hello</div>
-	<button type="button" hx-post="/clicked" hx-swap="outerHTML">Click Me</button>
-	{{ template "footer" }}
-</body>
+<div class="text-blue-500">Hello</div>
+<button type="button" hx-post="/clicked" hx-swap="outerHTML">Click Me</button>
 
-</html>
+{{ template "footer" }}
