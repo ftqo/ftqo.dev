@@ -1,9 +1,11 @@
-{{ template "head" }}
+{{ define "content" }}
 
-{{ template "header" }}
+<div id="content" class="[&>p]:pb-5">
+    <p class="text-3xl font-bold">welcome to
+        <span class="text-transparent bg-clip-text bg-gradient-to-br from-ctp-pink to-ctp-mauve">ftqo.dev</span>!
+    </p>
+    <p>i like to program !</p>
+    <p>this is WIP !</p>
+</div>
 
-<div class="text-blue-500">Hello</div>
-<button type="button" hx-post="/counter" hx-target="#dynamic-content" hx-swap="innerHTML">Click Me</button>
-<div id="dynamic-content" hx-get="/counter" hx-trigger="load"></div>
-
-{{ template "footer" }}
+{{ end }}

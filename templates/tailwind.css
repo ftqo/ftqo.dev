@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: "BricolageGrotesque";
+    src: url(/assets/fonts/BricolageGrotesque-VariableFont_opsz,wdth,wght.ttf) format("truetype");
+}
+
+@layer base {
+    html {
+        font-family: "BricolageGrotesque", system-ui, sans-serif;
+    }
+}
