@@ -1,45 +1,49 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="/assets/js/htmx.min.js"></script>
     <link href="/assets/css/styles.css" rel="stylesheet" />
-    <link rel="icon" href="/assets/images/favicon.ico">
-</head>
+    <link href="/assets/images/favicon.ico" rel="icon" />
+  </head>
 
-<body class=" bg-gradient-to-b from-ctp-base to-ctp-crust min-h-screen text-ctp-text dark:ctp-mocha">
+  <body class="min-h-screen bg-gradient-to-b from-ctp-base to-ctp-crust text-ctp-text dark:ctp-mocha">
     <header class="p-5 shadow">
-        <nav class="mx-auto flex max-w-7xl items-center justify-between p-6" aria-label="Global">
-            <div class="flex gap-x-12 text-2xl font-semibold leading-6">
-                <a {{ if eq .Path "index.html" }}
-                    class="text-transparent bg-clip-text bg-gradient-to-br from-ctp-pink to-ctp-mauve" {{ end }}
-                    href="/">home</a>
-                <a {{ if eq .Path "resume.html" }}
-                    class="text-transparent bg-clip-text bg-gradient-to-br from-ctp-pink to-ctp-mauve" {{ end }}
-                    href="/resume">resume</a>
-                <a {{ if eq .Path "blog.html" }}
-                    class="text-transparent bg-clip-text bg-gradient-to-br from-ctp-pink to-ctp-mauve" {{ end }}
-                    href="/blog">blog</a>
-            </div>
-            <div class="flex flex-1 justify-end">
-                <a href="https://github.com/ftqo" class="text-2xl font-semibold leading-6">github<span
-                        aria-hidden="true"> &rarr;</span></a>
-            </div>
-        </nav>
+      <nav class="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 text-2xl font-semibold leading-8">
+        <div class="flex gap-x-12">
+          {{ if eq .Path "index.html" }}
+          <a class="bg-gradient-to-br from-ctp-pink to-ctp-mauve bg-clip-text text-transparent hover:cursor-pointer">home</a>
+          {{ else }}
+          <a href="/" class="text-ctp-text transition-colors hover:text-ctp-overlay2">home</a>
+          {{ end }} {{ if eq .Path "resume.html" }}
+          <a class="bg-gradient-to-br from-ctp-pink to-ctp-mauve bg-clip-text text-transparent hover:cursor-pointer">resume</a>
+          {{ else }}
+          <a href="/resume" class="text-ctp-text transition-colors hover:text-ctp-overlay2">resume</a>
+          {{ end }} {{ if eq .Path "blog.html" }}
+          <a class="bg-gradient-to-br from-ctp-pink to-ctp-mauve bg-clip-text text-transparent hover:cursor-pointer">blog</a>
+          {{ else }}
+          <a href="/blog" class="text-ctp-text transition-colors hover:text-ctp-overlay2">blog</a>
+          {{ end }}
+        </div>
+        <div class="flex justify-end">
+          <a target="_blank" href="https://github.com/ftqo" class="text-ctp-text transition-colors hover:text-ctp-overlay2"
+            >github<span>&rarr;</span></a
+          >
+        </div>
+      </nav>
     </header>
-    <div class="text-lg p-10 mx-auto sm:w-content-sm lg:w-content">
-        {{ .Content }}
-    </div>
 
-    <footer class="absolute bottom-0 h-10 w-full text-center justify-center flex text-ctp-subtext0">
-        <p>
-            made with
-            <a target="_blank" href="https://www.youtube.com/watch?v=W86cTIoMv2U"><span
-                    class="text-transparent bg-clip-text bg-gradient-to-br from-ctp-pink to-ctp-red">♥</span></a>
-            in los gatos, ca
-        </p>
+    <div class="mx-auto p-10 text-lg/7 sm:w-[87.5%] md:w-[700px] lg:w-[940px]">{{ .Content }}</div>
+
+    <footer class="absolute bottom-0 flex h-10 w-full justify-center text-center text-ctp-subtext0">
+      <p>
+        made with
+        <a href="https://www.youtube.com/watch?v=W86cTIoMv2U" target="_blank"
+          ><span class="bg-gradient-to-br from-ctp-pink to-ctp-red bg-clip-text text-transparent">♥</span></a
+        >
+        in los gatos, ca
+      </p>
     </footer>
-</body>
-
+  </body>
 </html>

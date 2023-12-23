@@ -17,5 +17,6 @@ module.exports = {
       // which flavour of colours to use by default, in the `:root`
       defaultFlavour: "latte",
     }),
+    require("tailwind-fluid-typography")
   ],
 }

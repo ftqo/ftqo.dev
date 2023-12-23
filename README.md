@@ -14,6 +14,7 @@ huge shoutout to his [backend basics posts](https://eblog.fly.dev/backendbasics.
 all of the good code in here is probably from him, the bad code is from me
 
 TODO
+- under 580px width, hamburger menu with page name in top left
 - fancy homepage
 - finish gitquill api
 - md to html converter
