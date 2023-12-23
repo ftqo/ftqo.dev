@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "tailwind": "tailwindcss -i ./templates/tailwind.css -o ./tmp/assets/css/styles.css --minify"
+  },
   "devDependencies": {
     "@catppuccin/tailwindcss": "^0.1.6",
     "tailwindcss": "^3.4.0"
