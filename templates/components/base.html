@@ -2,35 +2,41 @@
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8">
     <script src="/assets/js/htmx.min.js"></script>
-    <link href="/assets/css/output.css" rel="stylesheet" />
+    <link href="/assets/css/styles.css" rel="stylesheet" />
 </head>
 
-<body class=" bg-gradient-to-b from-ctp-base to-ctp-crust min-h-screen text-ctp-text">
-    <header class="p-5">
-        <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
-            <div class="md:flex md:gap-x-12">
-                <a href="/" class="text-2xl font-semibold leading-6">home</a>
-                <a href="/portfolio" class="text-2xl font-semibold leading-6">portfolio</a>
-                <a href="/blog" class="text-2xl font-semibold leading-6">blog</a>
+<body class=" bg-gradient-to-b from-ctp-base to-ctp-crust min-h-screen text-ctp-text dark:ctp-mocha">
+    <header class="p-5 shadow">
+        <nav class="mx-auto flex max-w-7xl items-center justify-between p-6" aria-label="Global">
+            <div class="flex gap-x-12 text-2xl font-semibold leading-6">
+                <a {{ if eq .Path "index.html" }}
+                    class="text-transparent bg-clip-text bg-gradient-to-br from-ctp-pink to-ctp-mauve" {{ end }}
+                    href="/">home</a>
+                <a {{ if eq .Path "resume.html" }}
+                    class="text-transparent bg-clip-text bg-gradient-to-br from-ctp-pink to-ctp-mauve" {{ end }}
+                    href="/resume">resume</a>
+                <a {{ if eq .Path "blog.html" }}
+                    class="text-transparent bg-clip-text bg-gradient-to-br from-ctp-pink to-ctp-mauve" {{ end }}
+                    href="/blog">blog</a>
             </div>
-            <div class="md:flex md:flex-1 md:justify-end">
+            <div class="flex flex-1 justify-end">
                 <a href="https://github.com/ftqo" class="text-2xl font-semibold leading-6">github<span
-                        aria-hidden="true">&rarr;</span></a>
+                        aria-hidden="true"> &rarr;</span></a>
             </div>
         </nav>
     </header>
-
-    <hr>
-
-    <div class="py-10 mx-auto max-w-screen-lg">
-        {{ block "content" . }}{{ end }}
+    <div class="text-lg p-10 mx-auto sm:w-content-sm lg:w-content">
+        {{ .Content }}
     </div>
 
-    <footer class="absolute bottom-0 h-10 w-full text-center justify-center flex gap-1 text-ctp-subtext0">
-        <p>made with</p>
-        <p class="text-transparent bg-clip-text bg-gradient-to-br from-ctp-pink to-ctp-red">♥</p>
-        <p>in los gatos, ca</p>
+    <footer class="absolute bottom-0 h-10 w-full text-center justify-center flex text-ctp-subtext0">
+        <p>
+            made with
+            <a target="_blank" href="https://www.youtube.com/watch?v=W86cTIoMv2U"><span class="text-transparent bg-clip-text bg-gradient-to-br from-ctp-pink to-ctp-red">♥</span></a>
+            in los gatos, ca
+        </p>
     </footer>
 </body>
 

@@ -4,8 +4,8 @@ tmp_dir = "tmp"
 
 [build]
 args_bin = []
-bin = "./tmp/main"
-cmd = "go generate && go build -o ./tmp/main ./cmd/server/main.go "
+bin = "./tmp/bin/main"
+cmd = "go generate && go build -o ./tmp/bin/main ./cmd/server/main.go "
 delay = 1000
 exclude_dir = ["node_modules"]
 exclude_file = []

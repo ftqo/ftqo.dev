@@ -3,12 +3,15 @@
 @tailwind utilities;
 
 @font-face {
-    font-family: "BricolageGrotesque";
-    src: url(/assets/fonts/BricolageGrotesque-VariableFont_opsz,wdth,wght.ttf) format("truetype");
+    font-family: 'Bricolage Grotesque';
+    font-style: normal;
+    font-weight: 400;
+    font-stretch: 100%;
+    src: url(https://fonts.gstatic.com/s/bricolagegrotesque/v2/3y9U6as8bTXq_nANBjzKo3IeZx8z6up5BeSl5jBNz_19PpbpMXuECpwUxJBOm_OJWiaaD30YfKfjZZoLvRvi-Molss4MHt0GOQ.woff2) format('woff2');
 }
 
 @layer base {
     html {
-        font-family: "BricolageGrotesque", system-ui, sans-serif;
+        font-family: "Bricolage Grotesque", system-ui, sans-serif;
     }
 }

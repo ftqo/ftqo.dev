@@ -2,7 +2,12 @@
 module.exports = {
   content: ["./templates/**/*.html"],
   theme: {
-    extend: {},
+    extend: {
+      spacing: {
+        'content': '980px',
+        'content-sm': '87.5%'
+      }
+    },
   },
   plugins: [
     require("@catppuccin/tailwindcss")({
