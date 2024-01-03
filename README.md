@@ -1,23 +1,17 @@
 # ftqo.dev
 
-to generate the tailwind output file, install nodejs (u should use nvm btw) and then
-`npm i`
+this project requires node.js (u should use nvm) and go, then install dependencies with:
+`npm i && go mod tidy`
 
-and then just run:
+to generate the tailwind, populate templates, and zip the static files, run:
 `go generate`
 
-if you have air, you can hot reload with:
+then you can simply run:
+`go run cmd/server/main.go`
+
+if you have air installed, you can hot reload using:
 `air`
 
-snippets taken from [efron licht](https://gitlab.com/efronlicht/blog) with personal permission
+snippets taken from [efron licht](https://gitlab.com/efronlicht/blog) with personal permission.
 huge shoutout to his [backend basics posts](https://eblog.fly.dev/backendbasics.html). 
-all of the good code in here is probably from him, the bad code is from me
-
-TODO
-- under 580px width, hamburger menu with page name in top left
-- fancy homepage
-- finish gitquill api
-- md to html converter
-- first blog post
-- blog posts page (htmx??)
-- portfolio page
+all of the good code in here is probably from him; the bad code is from me
