@@ -8,26 +8,26 @@
     <link href="/assets/images/favicon.ico" rel="icon" />
   </head>
 
-  <body class="min-h-screen bg-gradient-to-b from-ctp-base to-ctp-crust text-ctp-text dark:ctp-mocha">
+  <body class="min-h-screen bg-flx-bg text-flx-tx dark:flx-flexoki">
     <header class="p-5 shadow">
       <nav class="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 text-2xl font-semibold leading-8">
         <div class="flex gap-x-12">
           {{ if eq .Path "index.html" }}
-          <a class="bg-gradient-to-br from-ctp-pink to-ctp-mauve bg-clip-text text-transparent hover:cursor-pointer">home</a>
+          <a class="bg-gradient-to-br from-flx-pu to-flx-ma bg-clip-text text-transparent hover:cursor-pointer">home</a>
           {{ else }}
-          <a href="/" class="text-ctp-text transition-colors hover:text-ctp-overlay2">home</a>
+          <a href="/" class="text-flx-text transition-colors hover:text-flx-overlay2">home</a>
           {{ end }} {{ if eq .Path "resume.html" }}
-          <a class="bg-gradient-to-br from-ctp-pink to-ctp-mauve bg-clip-text text-transparent hover:cursor-pointer">resume</a>
+          <a class="bg-gradient-to-br from-flx-pu to-flx-ma bg-clip-text text-transparent hover:cursor-pointer">resume</a>
           {{ else }}
-          <a href="/resume" class="text-ctp-text transition-colors hover:text-ctp-overlay2">resume</a>
+          <a href="/resume" class="text-flx-text transition-colors hover:text-flx-overlay2">resume</a>
           {{ end }} {{ if eq .Path "blog.html" }}
-          <a class="bg-gradient-to-br from-ctp-pink to-ctp-mauve bg-clip-text text-transparent hover:cursor-pointer">blog</a>
+          <a class="bg-gradient-to-br from-flx-pu to-flx-ma bg-clip-text text-transparent hover:cursor-pointer">blog</a>
           {{ else }}
-          <a href="/blog" class="text-ctp-text transition-colors hover:text-ctp-overlay2">blog</a>
+          <a href="/blog" class="text-flx-text transition-colors hover:text-flx-overlay2">blog</a>
           {{ end }}
         </div>
         <div class="flex justify-end">
-          <a target="_blank" href="https://github.com/ftqo" class="text-ctp-text transition-colors hover:text-ctp-overlay2"
+          <a target="_blank" href="https://github.com/ftqo" class="text-flx-text transition-colors hover:text-flx-overlay2"
             >github<span>&rarr;</span></a
           >
         </div>
@@ -36,11 +36,11 @@
 
     <div class="mx-auto p-10 text-lg/7 sm:w-[87.5%] md:w-[700px] lg:w-[940px]">{{ .Content }}</div>
 
-    <footer class="absolute bottom-0 flex h-10 w-full justify-center text-center text-ctp-subtext0">
+    <footer class="absolute bottom-0 flex h-10 w-full justify-center text-center text-flx-subtext0">
       <p>
         made with
         <a href="https://www.youtube.com/watch?v=W86cTIoMv2U" target="_blank"
-          ><span class="bg-gradient-to-br from-ctp-pink to-ctp-red bg-clip-text text-transparent">♥</span></a
+          ><span class="bg-gradient-to-br from-flx-re_2 to-flx-ma_2 bg-clip-text text-transparent">♥</span></a
         >
         in los gatos, ca
       </p>
