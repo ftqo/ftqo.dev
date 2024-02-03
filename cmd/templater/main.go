@@ -78,6 +78,12 @@ func main() {
 
 	log.Debug(fmt.Sprintf("built %+v", maps.Keys(built)))
 
+	err = os.RemoveAll(output)
+	if err != nil {
+		log.Error(err.Error())
+		os.Exit(1)
+	}
+
 	if err := os.MkdirAll(output, 0o755); err != nil {
 		log.Error(err.Error())
 		os.Exit(1)

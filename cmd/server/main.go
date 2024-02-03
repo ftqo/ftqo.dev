@@ -3,11 +3,12 @@ package main
 import (
 	"archive/zip"
 	"bytes"
-	"github.com/go-chi/chi/v5"
 	"io"
 	"log/slog"
 	"net/http"
 	"strings"
+
+	"github.com/go-chi/chi/v5"
 
 	"github.com/ftqo/ftqo.dev/build"
 	"github.com/ftqo/ftqo.dev/logger"
@@ -51,7 +52,7 @@ func main() {
 }
 
 func (s server) staticHandler(w http.ResponseWriter, r *http.Request) {
-	var err error
+	var f *zip.File
 	path := strings.TrimPrefix(r.URL.Path, "/")
 
 	switch {
@@ -66,34 +67,32 @@ func (s server) staticHandler(w http.ResponseWriter, r *http.Request) {
 		if !strings.Contains(path, ".") {
 			path = path + ".html"
 		}
-		f, ok := s.files[path]
+
+		var ok bool
+		f, ok = s.files[path]
 		if !ok {
 			w.WriteHeader(http.StatusNotFound)
 			return
 		}
+	}
 
-		var body io.Reader
-		if strings.Contains(r.Header.Get("Accept-Encoding"), "deflate") && f.Method == zip.Deflate {
-			w.Header().Set("Content-Encoding", "deflate")
-			body, err = f.OpenRaw()
-			if err != nil {
-				w.WriteHeader(http.StatusInternalServerError)
-				return
-			}
-		} else {
-			body, err = f.Open()
-			if err != nil {
-				w.WriteHeader(http.StatusInternalServerError)
-				return
-			}
-		}
-		_, err = io.Copy(w, body)
-		if err != nil {
-			w.WriteHeader(http.StatusInternalServerError)
-			return
-		}
-		w.WriteHeader(http.StatusOK)
+	var body io.Reader
+	var err error
+	if strings.Contains(r.Header.Get("Accept-Encoding"), "deflate") && f.Method == zip.Deflate {
+		w.Header().Set("Content-Encoding", "deflate")
+		body, err = f.OpenRaw()
+	} else {
+		body, err = f.Open()
+	}
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
 		return
 	}
-	w.WriteHeader(http.StatusNotFound)
+
+	_, err = io.Copy(w, body)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		return
+	}
+	w.WriteHeader(http.StatusOK)
 }
