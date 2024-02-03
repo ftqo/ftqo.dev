@@ -3,16 +3,63 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'Bricolage Grotesque';
+  font-family: 'strawford';
+  src: url('/assets/fonts/strawford-black-webfont.woff2') format('woff2');
+  font-weight: 900;
   font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'strawford';
+  src: url('/assets/fonts/strawford-bold-webfont.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'strawford';
+  src: url('/assets/fonts/strawford-extralight-webfont.woff2') format('woff2');
+  font-weight: 200;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'strawford';
+  src: url('/assets/fonts/strawford-light-webfont.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'strawford';
+  src: url('/assets/fonts/strawford-medium-webfont.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'strawford';
+  src: url('/assets/fonts/strawford-regular-webfont.woff2') format('woff2');
   font-weight: 400;
-  font-stretch: 100%;
-  src: url(https://fonts.gstatic.com/s/bricolagegrotesque/v2/3y9U6as8bTXq_nANBjzKo3IeZx8z6up5BeSl5jBNz_19PpbpMXuECpwUxJBOm_OJWiaaD30YfKfjZZoLvRvi-Molss4MHt0GOQ.woff2)
-    format('woff2');
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'strawford';
+  src: url('/assets/fonts/strawford-thin-webfont.woff2') format('woff2');
+  font-weight: 100;
+  font-style: normal;
+
 }
 
 @layer base {
   html {
-    font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+    font-family: 'strawford', system-ui, sans-serif;
   }
 }

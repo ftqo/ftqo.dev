@@ -17,6 +17,5 @@ module.exports = {
       prefix: "flx",
       defaultFlavour: "flexoki_light",
     }),
-    require("tailwind-fluid-typography")
   ],
 }

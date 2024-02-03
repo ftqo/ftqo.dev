@@ -8,35 +8,24 @@
     <link href="/assets/images/favicon.ico" rel="icon" />
   </head>
 
-  <body class="min-h-screen bg-flx-bg text-flx-tx dark:flx-flexoki">
-    <header class="p-5 shadow">
-      <nav class="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 text-2xl font-semibold leading-8">
-        <div class="flex gap-x-12">
-          {{ if eq .Path "index.html" }}
-          <a class="bg-gradient-to-br from-flx-pu to-flx-ma bg-clip-text text-transparent hover:cursor-pointer">home</a>
-          {{ else }}
-          <a href="/" class="text-flx-text transition-colors hover:text-flx-overlay2">home</a>
-          {{ end }} {{ if eq .Path "resume.html" }}
-          <a class="bg-gradient-to-br from-flx-pu to-flx-ma bg-clip-text text-transparent hover:cursor-pointer">resume</a>
-          {{ else }}
-          <a href="/resume" class="text-flx-text transition-colors hover:text-flx-overlay2">resume</a>
-          {{ end }} {{ if eq .Path "blog.html" }}
-          <a class="bg-gradient-to-br from-flx-pu to-flx-ma bg-clip-text text-transparent hover:cursor-pointer">blog</a>
-          {{ else }}
-          <a href="/blog" class="text-flx-text transition-colors hover:text-flx-overlay2">blog</a>
-          {{ end }}
+  <body class="bt-10 mx-auto min-h-screen bg-flx-bg py-10 text-lg/7 text-flx-tx dark:flx-flexoki sm:w-[87.5%] md:w-[700px] lg:w-[940px]">
+    <header class="">
+      <nav class="mx-auto flex max-w-7xl justify-between py-10 text-2xl font-semibold leading-8">
+        <div class="mr-3">
+          <a href="/">ftqo.dev</a>
+          <a class="font-light text-flx-tx_2 hover:cursor-pointer">/ {{ .Path }}</a>
         </div>
         <div class="flex justify-end">
-          <a target="_blank" href="https://github.com/ftqo" class="text-flx-text transition-colors hover:text-flx-overlay2"
+          <a target="_blank" href="https://github.com/ftqo" class="text-flx-text hover:text-flx-overlay2 transition-colors"
             >github<span>&rarr;</span></a
           >
         </div>
       </nav>
     </header>
 
-    <div class="mx-auto p-10 text-lg/7 sm:w-[87.5%] md:w-[700px] lg:w-[940px]">{{ .Content }}</div>
+    <div class="">{{ .Content }}</div>
 
-    <footer class="absolute bottom-0 flex h-10 w-full justify-center text-center text-flx-subtext0">
+    <footer class="text-flx-subtext0 absolute bottom-0 left-0 right-0 h-10 justify-center text-center">
       <p>
         made with
         <a href="https://www.youtube.com/watch?v=W86cTIoMv2U" target="_blank"
