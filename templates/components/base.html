@@ -8,12 +8,14 @@
     <link href="/assets/images/favicon.ico" rel="icon" />
   </head>
 
-  <body class="bt-10 mx-auto min-h-screen bg-flx-bg py-10 text-lg/7 text-flx-tx dark:flx-flexoki sm:w-[87.5%] md:w-[700px] lg:w-[940px]">
+  <body
+    class="relative mx-auto min-h-screen bg-flx-bg p-10 py-10 text-lg/7 text-flx-tx dark:flx-flexoki sm:w-[87.5%] md:w-[700px] lg:w-[940px]"
+  >
     <header class="">
-      <nav class="mx-auto flex max-w-7xl justify-between py-10 text-2xl font-semibold leading-8">
+      <nav class="mx-auto flex max-w-7xl justify-between pb-10 text-2xl font-semibold leading-8 md:py-10">
         <div class="mr-3">
           <a href="/">ftqo.dev</a>
-          <a class="font-light text-flx-tx_2 hover:cursor-pointer">/ {{ .Path }}</a>
+          <span class="font-light text-flx-tx_2">/ {{ .Path }}</span>
         </div>
         <div class="flex justify-end">
           <a target="_blank" href="https://github.com/ftqo" class="text-flx-text hover:text-flx-overlay2 transition-colors"
@@ -23,9 +25,9 @@
       </nav>
     </header>
 
-    <div class="">{{ .Content }}</div>
+    <div class="px-5">{{ .Content }}</div>
 
-    <footer class="text-flx-subtext0 absolute bottom-0 left-0 right-0 h-10 justify-center text-center">
+    <footer class="text-flx-subtext0 absolute bottom-0 left-0 right-0 h-10 w-full justify-center text-center">
       <p>
         made with
         <a href="https://www.youtube.com/watch?v=W86cTIoMv2U" target="_blank"
