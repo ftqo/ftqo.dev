@@ -6,6 +6,7 @@ import (
 	"io"
 	"log/slog"
 	"net/http"
+	"os"
 	"strings"
 
 	"github.com/go-chi/chi/v5"
@@ -28,7 +29,7 @@ func main() {
 	fs, err := zip.NewReader(bytes.NewReader(build.F), int64(len(build.F)))
 	if err != nil {
 		log.Error("failed to read zipped file: " + err.Error())
-		panic(nil)
+		os.Exit(1)
 	}
 
 	// idea of snippet stolen from efron licht (see readme)

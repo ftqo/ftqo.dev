@@ -20,7 +20,7 @@ func main() {
 	as, err := filepath.Glob(filepath.Join(assets, "*"))
 	if err != nil {
 		log.Error(err.Error())
-		panic(nil)
+		os.Exit(1)
 	}
 
 	args := append([]string{"-R"}, as...)
@@ -30,13 +30,13 @@ func main() {
 	err = cmd.Run()
 	if err != nil {
 		log.Error(err.Error())
-		panic(nil)
+		os.Exit(1)
 	}
 
 	zipFile, err := os.Create(output)
 	if err != nil {
 		log.Error(err.Error())
-		panic(nil)
+		os.Exit(1)
 	}
 	defer zipFile.Close()
 
@@ -94,7 +94,7 @@ func main() {
 
 	if err != nil {
 		log.Error(err.Error())
-		panic(nil)
+		panic(nil) // run deferred functions
 	}
 
 	log.Info("built zip", "path", filepath.Clean(output))
