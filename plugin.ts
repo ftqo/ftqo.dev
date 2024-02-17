@@ -1,13 +1,15 @@
+// code mostly from catppuccin's tailwind plugin
+
 import plugin from "tailwindcss/plugin";
 import { variants } from "./palette";
 import { Config } from "tailwindcss";
 import { ThemeConfig } from "tailwindcss/types/config";
 
-type CatppuccinFlavor = keyof typeof variants;
-type CatppuccinColor = keyof (typeof variants)[CatppuccinFlavor];
-type CatppuccinPluginOptions = {
+type Flavor = keyof typeof variants;
+type Color = keyof (typeof variants)[Flavor];
+type PluginOptions = {
   prefix?: string | boolean;
-  defaultFlavour?: CatppuccinFlavor;
+  defaultFlavour?: Flavor;
 };
 type WithOpacityFn = (options: { opacityValue?: number }) => string;
 type PickByType<T, Value> = {
@@ -24,16 +26,15 @@ const withOpacity = (variableName: string) => {
   };
 };
 
-// generate an object with the catppuccin palette
 const palette: Record<string, Record<string, string>> = {};
 Object.keys(variants).map((variant) => {
   // insert a key into the colors object, with an empty object
   palette[variant] = {};
   // for each color...
-  Object.keys(variants[variant as CatppuccinFlavor]).map((color) => {
+  Object.keys(variants[variant as Flavor]).map((color) => {
     // insert a key into the colors object
     palette[variant][color] =
-      variants[variant as CatppuccinFlavor][color as CatppuccinColor].hex;
+      variants[variant as Flavor][color as Color].hex;
   });
 });
 
@@ -52,7 +53,7 @@ const parseHexToRGB = (hex: string): string => {
 
 // generates the css variables, injected in the addBase() function
 const generateColorCss = (
-  defaultFlavor: CatppuccinFlavor | "" = "",
+  defaultFlavor: Flavor | "" = "",
   prefix: string | boolean = false
 ) => {
   const result: Record<string, Record<string, string>> = {};
@@ -108,7 +109,7 @@ const colorConfigKeys: (keyof PickByType<
   "textColor",
 ];
 
-export default plugin.withOptions<CatppuccinPluginOptions>(
+export default plugin.withOptions<PluginOptions>(
   (options) => {
     return ({ addBase }) => {
       addBase(generateColorCss(options?.defaultFlavour, options?.prefix));
