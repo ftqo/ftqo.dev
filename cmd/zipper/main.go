@@ -91,7 +91,6 @@ func main() {
 
 		return nil
 	})
-
 	if err != nil {
 		log.Error(err.Error())
 		panic(nil) // run deferred functions
