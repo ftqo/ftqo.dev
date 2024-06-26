@@ -8,13 +8,14 @@ import (
 	"path/filepath"
 	"strings"
 
+	"github.com/ftqo/ftqo.dev/build"
 	"github.com/ftqo/ftqo.dev/logger"
 )
 
 func main() {
-	input := "./tmp"
-	output := "./build/files.zip"
-	assets := "./assets"
+	input := build.TmpDir
+	output := filepath.Join(build.BuildDir, build.StaticBundleName)
+	assets := build.AssetsDir
 	log := logger.GetLogger("zipper")
 
 	as, err := filepath.Glob(filepath.Join(assets, "*"))

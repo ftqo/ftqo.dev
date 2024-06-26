@@ -9,14 +9,15 @@ import (
 	"path/filepath"
 	"strings"
 
+	"github.com/ftqo/ftqo.dev/build"
 	"github.com/ftqo/ftqo.dev/logger"
 	"golang.org/x/exp/maps"
 )
 
 func main() {
 	log := logger.GetLogger("templater")
-	input := "./templates"
-	output := "./tmp"
+	input := build.TemplateDir
+	output := build.TmpDir
 
 	var files []string
 
