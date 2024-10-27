@@ -12,9 +12,9 @@ import (
 )
 
 func main() {
-	input := "./tmp"
-	output := "./build/files.zip"
-	assets := "./assets"
+	input := "tmp"
+	output := "build/files.zip"
+	assets := "assets"
 	log := logger.GetLogger("zipper")
 
 	as, err := filepath.Glob(filepath.Join(assets, "*"))

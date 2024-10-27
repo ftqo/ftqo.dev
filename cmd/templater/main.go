@@ -15,8 +15,8 @@ import (
 
 func main() {
 	log := logger.GetLogger("templater")
-	input := "./templates"
-	output := "./tmp"
+	input := "templates"
+	output := "tmp"
 
 	var files []string
 

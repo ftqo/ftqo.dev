@@ -35,7 +35,7 @@ func main() {
 	// idea of snippet stolen from efron licht (see readme)
 	s.files = make(map[string]*zip.File, len(fs.File))
 	for _, f := range fs.File {
-		s.files[strings.TrimPrefix(f.Name, "tmp/")] = f
+		s.files[strings.TrimPrefix(f.Name, "tmp")] = f
 	}
 
 	r := chi.NewRouter()
@@ -59,8 +59,10 @@ func (s server) staticHandler(w http.ResponseWriter, r *http.Request) {
 	switch {
 	case path == "index.html":
 		http.Redirect(w, r, "/", http.StatusMovedPermanently)
+		return
 	case strings.HasSuffix(path, ".html"):
 		http.Redirect(w, r, path[:len(path)-5], http.StatusMovedPermanently)
+		return
 	default:
 		if path == "" {
 			path = "index.html"
@@ -72,7 +74,7 @@ func (s server) staticHandler(w http.ResponseWriter, r *http.Request) {
 		var ok bool
 		f, ok = s.files[path]
 		if !ok {
-			w.WriteHeader(http.StatusNotFound)
+			http.NotFound(w, r)
 			return
 		}
 	}
@@ -82,18 +84,25 @@ func (s server) staticHandler(w http.ResponseWriter, r *http.Request) {
 	if strings.Contains(r.Header.Get("Accept-Encoding"), "deflate") && f.Method == zip.Deflate {
 		w.Header().Set("Content-Encoding", "deflate")
 		body, err = f.OpenRaw()
+		s.log.Debug("opening raw")
 	} else {
 		body, err = f.Open()
+		s.log.Debug("opening decompressed")
 	}
 	if err != nil {
-		w.WriteHeader(http.StatusInternalServerError)
+		s.log.Error("failed to open file: " + err.Error())
+		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
 		return
 	}
 
 	_, err = io.Copy(w, body)
 	if err != nil {
-		w.WriteHeader(http.StatusInternalServerError)
+		s.log.Error("failed to write response: " + err.Error())
+		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
 		return
 	}
-	w.WriteHeader(http.StatusOK)
+	if closer, ok := body.(io.Closer); ok {
+		closer.Close()
+		s.log.Debug("found io.Closer")
+	}
 }
